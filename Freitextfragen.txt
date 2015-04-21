@@ -1,0 +1,4 @@
+2. Die Headerdateien des Betriebssystem müssen in der makefile nicht berücksichtigt werden, da sie sich nicht verändern. Bei jedem Compileraufruf sind die Headerdateien in ihrer vorherigen Form vorhanden, sie müssen nicht neu kompiliert werden.
+3. In main.c muss #include "input.c" ergänzt werden. In der makefile ändert sich dadurch die ursprüngliche Zeile main.o: main.c utils.h types.h defs.h zu main.o: main.c utils.h types.h defs.h input.c
+5. Wenn im Verzeichnis die Datei(en) clean oder install vorhanden sind und der Befehl make clean oder make install ausgeführt wird, verhält sich make so, als wäre keine makefile vorhanden. make versucht die Dateien zu kompilieren. Die Instruktion für make clean, install aus der makefile wird ignoriert.
+

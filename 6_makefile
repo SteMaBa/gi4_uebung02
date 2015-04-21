@@ -1,0 +1,15 @@
+CC = gcc
+CFLAGS = 
+LDFLAGS = 
+
+all: editor
+
+depend:
+	$(CC) -MM main.c input.c utils.h > dependencies
+
+include dependencies
+
+editor: main.o input.o
+	make depend
+	$(CC) $(LDFLAGS) -o editor main.o input.o
+

@@ -1,0 +1,13 @@
+CC = gcc
+CFLAGS = 
+LDFLAGS = 
+
+main.o: main.c utils.h types.h defs.h
+input.o: input.c
+utils.o: utils.h types.h defs.h
+
+all: editor
+
+editor: main.o input.o
+	$(CC) $(LDFLAGS) -o editor main.o input.o
+

@@ -1,0 +1,26 @@
+CC = gcc
+CFLAGS = 
+LDFLAGS = 
+DATEIENC = main.c input.c
+DATEIENH = utils.h types.h defs.h 
+BINARYEDITOR = editor
+
+main.o: main.c utils.h types.h defs.h
+input.o: input.c
+utils.o: utils.h types.h defs.h
+
+all: editor
+
+editor: main.o input.o
+	$(CC) $(LDFLAGS) -o editor main.o input.o
+clean:
+	rm -f ${DATEIENC:.c=.o}	
+	rm -f ${DATEIENH:.h=.o}
+	rm -f ${BINARYEDITOR}
+	rm -f ${DATEIENC:.c=}
+	rm -f ${DATEIENH:.h=}
+install:
+	make editor
+	sudo cp ./editor /usr/bin
+	sudo chmod -r-xr-xr-x /usr/bin/editor
+ 
