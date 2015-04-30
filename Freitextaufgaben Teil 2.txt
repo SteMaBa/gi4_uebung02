@@ -1,0 +1,42 @@
+Aufgabe 2)
+
+1.) char msg[] = "Hello World!";
+        
+        niedrige Adressen                                                                       hohe Adressen
+        0       1       2       3       4       5       6       7       8       9       10      11      12
+        H       e       l       l       o       *LEER*  W       o       r       l       d       !       \0
+        0x48    0x65    0x6c    0x6c    0x6f    0x20    0x57    0x6f    0x72    0x6c    0x64    0x21    0x00
+        
+2.) i, s, c Little und Big Endian
+        
+        Werte hexadezimal:
+        int i = 0xDEADBEEF;
+        short s = 0x0401;
+        char c = 0x07;
+        
+                        Niedrige Adressen                                      hohe Adressen
+        Adresse         0       1       2       3               4       5               6
+        Little Endian   0xEF    0xBE    0xAD    0xDE            0x01    0x04            0x07
+        Big Endian      0xDE    0xAD    0xBE    0xEF            0x04    0x01            0x07
+        
+3.)Speicherausrichtung
+
+        struct hexadezimal:
+        struct bigone 
+        {
+                char index;     /* 7 = 0x07 */
+                int avalue;     /* -512 = 0xFFFFFE00 */
+                short shortvalue; /* 127 = 0x007F */
+                char space;     /* 32 = 0x20 */
+                short sarray[2]; /* {0x0123, 0x0456} */
+                int anothervalue; /* 4096 = 0x00001000 */
+        }
+        
+        niedrige Adressen
+        0x07                            0x00    0xFE    0xFF    0xFF
+        0x7F    0x00    0x20            0x23    0x01    0x56    0x04
+        0x00    0x10    0x00    0x00                                    
+                                                       hohe Adressen
+                                                       
+                                                       
+        
